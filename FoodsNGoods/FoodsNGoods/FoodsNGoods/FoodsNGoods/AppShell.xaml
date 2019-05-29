@@ -2,10 +2,9 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
        xmlns:local="clr-namespace:FoodsNGoods.Views"
-       RouteHost="companyname.com"
-       RouteScheme="app"
-       Route="FoodsNGoods"
-       FlyoutBehavior="Disabled"
+       xmlns:core="clr-namespace:FoodsNGoods"
+       FlyoutBehavior="Flyout"
+       FlyoutHeaderBehavior="CollapseOnScroll"
        Title="FoodsNGoods"
        x:Class="FoodsNGoods.AppShell">
 
@@ -54,29 +53,44 @@
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ShellForegroundColor" Value="White" />
-                <Setter Property="Shell.ShellTitleColor" Value="White" />
-                <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
     <!-- Your Pages -->
-    <ShellItem>
-        <ShellSection Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
-        </ShellSection>
-        <ShellSection Title="About" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
-        </ShellSection>
-    </ShellItem>
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="300" Margin="5,5,5,5">
+            <Image Source="{core:ImageResource FoodsNGoods.Images.logo.jpg}"
+                   Aspect="AspectFill" 
+                   HeightRequest="300" 
+                   BackgroundColor="#edece7"
+                   HorizontalOptions="FillAndExpand"/>
+            <Label Text="Foods 'n' Goods" TextColor="Black" FontSize="20" FontFamily="Italic" Margin="7,0,0,5" HorizontalOptions="Start" VerticalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem  Route="home"  Title="Login" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="login" ContentTemplate="{DataTemplate local:ViewLogin}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Register" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Route="home" Title="Restaurants" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="restaurants" ContentTemplate="{DataTemplate local:ViewRestaurants}" />
+    </FlyoutItem>
+
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.

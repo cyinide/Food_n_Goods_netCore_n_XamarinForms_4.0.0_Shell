@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodsNGoods.App">
     <Application.Resources>
-        
+        <ResourceDictionary>
+
+            <!-- COLORS -->
+            <Color x:Key="PageBackground">#edece7</Color>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
