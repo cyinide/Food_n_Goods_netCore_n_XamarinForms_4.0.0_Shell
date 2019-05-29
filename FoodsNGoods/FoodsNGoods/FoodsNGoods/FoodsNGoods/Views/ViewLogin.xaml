@@ -33,7 +33,7 @@
         </StackLayout>
 
         <!-- LOGIN FORM -->
-        <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,40,40,0">
+        <StackLayout Orientation="Vertical" Grid.Row="1" Margin="40,50,40,0">
             <Entry Placeholder="Username" />
             <Entry Placeholder="Password" />
 
