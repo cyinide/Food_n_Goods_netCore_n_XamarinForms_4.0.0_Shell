@@ -16,6 +16,10 @@ namespace FoodsNGoods
         {
             InitializeComponent();
 
+#if DEBUG
+            HotReloader.Current.Start(this);
+#endif
+
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else

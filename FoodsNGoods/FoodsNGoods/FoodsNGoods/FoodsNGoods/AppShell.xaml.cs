@@ -10,6 +10,12 @@ namespace FoodsNGoods
         public AppShell()
         {
             InitializeComponent();
+            RegisterRoutes();
+        }
+
+        private void RegisterRoutes()
+        {
+            
         }
     }
 }

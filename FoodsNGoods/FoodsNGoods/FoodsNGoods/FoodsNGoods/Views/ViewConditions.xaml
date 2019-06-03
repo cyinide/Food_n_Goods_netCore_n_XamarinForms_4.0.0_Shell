@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:FoodsNGoods.ViewModels"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="FoodsNGoods.Views.ViewConditions"
+             BackgroundColor="{StaticResource PageBackground}"
+             Shell.NavBarIsVisible="False"
+             Padding="25">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ConditionsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,0">
+                <ffimageloading:CachedImage Aspect="AspectFit" HeightRequest="70" WidthRequest="70"  Source="resource://FoodsNGoods.Images.logo.jpg" />
+                <Label Text="Terms and Conditions" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black" />
+                <Label HorizontalOptions="Center" Margin="35,0,20,0" FontSize="15" HorizontalTextAlignment="Center" Text="Please read the terms and conditions before using the application."></Label>
+            </StackLayout>
+            <StackLayout  Padding="10" Margin="28,0,28,5" >
+                <StackLayout>
+                    <BoxView Color="Black" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+                    <ScrollView VerticalScrollBarVisibility="Always" Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label  HorizontalTextAlignment="Center" Text="{Binding Terms}">
+                            </Label>
+                        </StackLayout>
+                    </ScrollView>
+                    <BoxView Color="Black" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+                </StackLayout>
+                <Label VerticalOptions="EndAndExpand" FontSize="15" Margin="0,10,0,0" Text="I accept the terms and conditions for this app: " HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="30,0,30,0">
+                <Button Text="No"  Command="{Binding NavigateCommand}" CommandParameter="//home/login"	 HorizontalOptions="Start"  BackgroundColor="#13818d" TextColor="White" WidthRequest="100"></Button>
+                <Button Text="Yes"  Command="{Binding NavigateCommand}" CommandParameter="//order/restaurants"	 HorizontalOptions="EndAndExpand"  BackgroundColor="#13818d" TextColor="White" WidthRequest="100"></Button>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
+
+
+

@@ -87,7 +87,11 @@
         <ShellContent Route="register" ContentTemplate="{DataTemplate local:ViewRegister}"/>
     </FlyoutItem>
 
-    <FlyoutItem Route="home" Title="Restaurants" FlyoutIcon="tab_feed.png">
+    <FlyoutItem Route="home" Title="Conditions" FlyoutIcon="tab_feed.png">
+        <ShellContent Route="conditions" ContentTemplate="{DataTemplate local:ViewConditions}" />
+    </FlyoutItem>
+
+    <FlyoutItem Route="order" Title="Restaurants" FlyoutIcon="tab_feed.png">
         <ShellContent Route="restaurants" ContentTemplate="{DataTemplate local:ViewRestaurants}" />
     </FlyoutItem>
 
